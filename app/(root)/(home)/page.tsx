@@ -1,4 +1,5 @@
 // import Image from 'next/image'
+import Filters from '@/components/Filters';
 import SearchForm from '@/components/SearchForm';
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
         </div>
         <SearchForm />
       </section>
-      Filters
+      <Filters />
     </main>
   );
 }
