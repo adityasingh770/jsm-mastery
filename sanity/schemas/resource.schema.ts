@@ -2,7 +2,7 @@ const schema = {
   name: 'resource',
   title: 'Resource',
   type: 'document',
-  field: [
+  fields: [
     {
       name: 'title',
       title: 'Title',
@@ -42,10 +42,30 @@ const schema = {
     {
       name: 'category',
       title: 'Category',
-      type: 'reference',
-      validation: (Rule: any) => Rule.required(),
+      type: 'string',
+      validation: (Rule: {
+        required: () => {
+          (): any;
+          new (): any;
+          custom: {
+            (arg0: (value: any) => boolean): { (): any; new (): any; error: { (arg0: string): any; new (): any } };
+            new (): any;
+          };
+        };
+      }) =>
+        Rule.required()
+          .custom((value: string) => {
+            return ['Next 13', 'Frontend', 'Backend', 'Fullstack', 'Other'].includes(value);
+          })
+          .error('Please select a valid category.'),
       options: {
-        list: ['Next 13', 'Frontend', 'Backend', 'Fullstack', 'Other'],
+        list: [
+          { title: 'Next 13', value: 'Next 13' },
+          { title: 'Frontend', value: 'Frontend' },
+          { title: 'Backend', value: 'Backend' },
+          { title: 'Fullstack', value: 'Fullstack' },
+          { title: 'Other', value: 'Other' },
+        ],
       },
     },
   ],
