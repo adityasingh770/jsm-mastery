@@ -3,7 +3,7 @@ import Filters from '@/components/Filters';
 import Header from '@/components/Header';
 import ResourceCard from '@/components/ResourceCard';
 import SearchForm from '@/components/SearchForm';
-import { getResources } from '@/sanity/actions';
+import { getResources, getResourcesPlaylist } from '@/sanity/actions';
 
 export const revalidate = 900;
 
@@ -17,6 +17,8 @@ const Page = async ({ searchParams }: Props) => {
     category: searchParams?.category || '',
     page: '1',
   });
+
+  const resourcesPlaylist = await getResourcesPlaylist();
 
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col">
