@@ -4,7 +4,7 @@ import { formUrlQuery } from '@/sanity/utils';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const links = ['All', 'Next 13', 'Frontend', 'Backend', 'Fullstack'];
+const links = ['all', 'Next 13', 'frontend', 'backend', 'fullstack'];
 
 const Filters = () => {
   const [active, setActive] = useState('');
@@ -18,8 +18,7 @@ const Filters = () => {
       setActive('');
       newUrl = formUrlQuery({
         params: searchParams.toString(),
-        key: 'category',
-        value: null,
+        keysToRemove: ['category'],
       });
     } else {
       setActive(link);

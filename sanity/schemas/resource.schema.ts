@@ -55,16 +55,16 @@ const schema = {
       }) =>
         Rule.required()
           .custom((value: string) => {
-            return ['Next 13', 'Frontend', 'Backend', 'Fullstack', 'Other'].includes(value);
+            return ['next 13', 'frontend', 'backend', 'fullstack', 'other'].includes(value);
           })
           .error('Please select a valid category.'),
       options: {
         list: [
-          { title: 'Next 13', value: 'Next 13' },
-          { title: 'Frontend', value: 'Frontend' },
-          { title: 'Backend', value: 'Backend' },
-          { title: 'Fullstack', value: 'Fullstack' },
-          { title: 'Other', value: 'Other' },
+          { title: 'Next 13', value: 'next 13' },
+          { title: 'Frontend', value: 'frontend' },
+          { title: 'Backend', value: 'backend' },
+          { title: 'Fullstack', value: 'fullstack' },
+          { title: 'Other', value: 'other' },
         ],
       },
     },
