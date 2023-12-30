@@ -41,10 +41,20 @@ const schema = {
       name: 'category',
       title: 'Category',
       type: 'string',
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: { required: () => { (): any; new(): any; custom: { (arg0: (value: any) => boolean): { (): any; new(): any; error: { (arg0: string): any; new(): any; }; }; new(): any; }; }; }) => Rule.required().custom((value) => {
+        return ['next 13', 'frontend', 'backend', 'fullstack', 'other'].includes(value);
+      }).error('Please select a valid category.'),
       options: {
-        list: ['frontend', 'backend', 'next 13', 'fullstack', 'other'],
+        list: [
+          { title: 'Next 13', value: 'next 13' },
+          { title: 'Frontend', value: 'frontend' },
+          { title: 'Backend', value: 'backend' },
+          { title: 'Fullstack', value: 'fullstack' },
+          { title: 'Other', value: 'other' },
+        ],
       },
     },
   ],
 };
+
+export default schema;
