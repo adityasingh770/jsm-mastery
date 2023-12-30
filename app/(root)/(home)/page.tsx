@@ -20,9 +20,8 @@ const Page = async () => {
         <SearchForm />
       </section>
       <Filters />
-      <section className='flex-center mt-6 w-full flex-col sm:mt-20'>
-        Header
-        <div className='mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start'>
+      <section className="flex-center mt-6 w-full flex-col sm:mt-20">
+        <div className="mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
           {resources?.length > 0 ? (
             resources.map((resource: any) => (
               <ResourceCard
@@ -31,18 +30,15 @@ const Page = async () => {
                 id={resource._id}
                 image={resource.image}
                 downloadNumber={resource.views}
-                slug={resource._id}
               />
             ))
           ) : (
-            <p className='body-regular text-white-400'>
-              No resources found
-            </p>
+            <p className="body-regular text-white-400">No resources found</p>
           )}
         </div>
       </section>
     </main>
   );
-}
+};
 
 export default Page;
