@@ -1,15 +1,14 @@
 interface Props {
-  title: string;
   query?: string;
   category?: string;
 }
 
-const Header = ({ title, query, category }: Props) => {
+const Header = ({ query, category }: Props) => {
   if (query && category) {
     return (
       <h1 className="heading3 self-start text-white-800">
         Search results for &quot;{query}&quot; in
-        <span className="capitalize">{category}</span>
+        <span className="capitalize"> {category}</span>
       </h1>
     );
   } else if (query) {
